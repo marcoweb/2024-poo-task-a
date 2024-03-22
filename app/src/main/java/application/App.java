@@ -1,7 +1,10 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
+import application.model.AbstractAtividade;
+import application.model.Atividade;
 import application.model.Compromisso;
 import application.model.Tarefa;
 
@@ -28,5 +31,21 @@ public class App {
         c.setDataFinal(dtFim);
 
         System.out.println(c.getDetalhes());
+
+        Compromisso c2 = new Compromisso();
+        c2.setDescricao("Férias");
+        c2.setDataInicial(1, 7, 2024);
+        c2.setDataFinal(30,7,2024);
+
+        System.out.println(c2.getDetalhes());
+
+        ArrayList<AbstractAtividade> lista = new ArrayList<AbstractAtividade>();
+        lista.add(t);
+        lista.add(c2);
+
+        System.out.println("----------[Lista]----------");
+        for(AbstractAtividade a : lista) {
+            System.out.println(a.getDetalhes());
+        }
     }
 }
