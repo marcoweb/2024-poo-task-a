@@ -47,5 +47,9 @@ public class App {
         for(AbstractAtividade a : lista) {
             System.out.println(a.getDetalhes());
         }
+
+        for(int v : Compromisso.strDateToArrayIntDate("28/03/2024")) {
+            System.out.println(v);
+        }
     }
 }

@@ -10,6 +10,12 @@ public class Compromisso extends AbstractAtividade {
         this.dataInicial = dataInicial;
     }
 
+    public void setDataInicial(int dia, int mes, int ano) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(ano, (mes - 1), dia);
+        this.setDataInicial(cal);
+    }
+
     public Calendar getDataInicial() {
         return this.dataInicial;
     }
@@ -29,15 +35,21 @@ public class Compromisso extends AbstractAtividade {
             " :: " + this.getDataFinal().getTime();
     }
 
-    public void setDataInicial(int dia, int mes, int ano) {
-        Calendar cal = Calendar.getInstance();
-        cal.set(ano, (mes - 1), dia);
-        this.setDataInicial(cal);
-    }
+ 
 
     public void setDataFinal(int dia, int mes, int ano) {
         Calendar cal = Calendar.getInstance();
         cal.set(ano, (mes - 1), dia);
         this.setDataFinal(cal);
     }
+
+    public static int[] strDateToArrayIntDate(String data) {
+        int[] resultado = new int[3];
+        String[] strArray = data.split("\\s*/\\s*");
+        for(int cont = 0;cont < strArray.length;cont++) {
+            resultado[cont] = Integer.parseInt(strArray[cont]);
+        }
+        return resultado;
+    }
 }
+
